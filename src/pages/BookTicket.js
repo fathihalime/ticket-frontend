@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Navbar from "../components/Navbar";
 import "./BookTicket.css";
 
@@ -10,29 +10,40 @@ export default function BookTicket() {
   const [showSuccess, setShowSuccess] = useState(false);
   const userId = localStorage.getItem("user_id");
 
+  // =======================
+  // Fetch Booking History
+  // =======================
+  const fetchBookings = useCallback(() => {
+    if (!userId) return;
+    fetch(`http://localhost:8082/bookings/${userId}`)
+      .then((res) => res.json())
+      .then((data) => setBookings(data))
+      .catch((err) => console.error("Error fetching bookings:", err));
+  }, [userId]);
+
+  // =======================
+  // Fetch Events & Bookings
+  // =======================
   useEffect(() => {
     fetch("http://localhost:8082/events")
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);
         if (data.length > 0) setSelectedEventId(data[0].id);
-      });
+      })
+      .catch((err) => console.error("Error fetching events:", err));
 
     fetchBookings();
-  }, []);
+  }, [fetchBookings]);
 
-  const fetchBookings = () => {
-    if (!userId) return;
-    fetch(`http://localhost:8082/bookings/${userId}`)
-      .then((res) => res.json())
-      .then((data) => setBookings(data));
-  };
-
+  // =======================
+  // Handle Booking
+  // =======================
   const handleBooking = async () => {
     const event = events.find((e) => e.id === Number(selectedEventId));
     if (!event) return;
 
-    const total = event.price * quantity;
+    const total = event.price * Number(quantity);
 
     try {
       const response = await fetch("http://localhost:8082/book", {
@@ -41,7 +52,7 @@ export default function BookTicket() {
         body: JSON.stringify({
           userId,
           eventId: event.id,
-          quantity,
+          quantity: Number(quantity),
           total,
         }),
       });
