@@ -15,7 +15,7 @@ export default function BookTicket() {
   // =======================
   const fetchBookings = useCallback(() => {
     if (!userId) return;
-    fetch(`http://localhost:8082/bookings/${userId}`)
+    fetch(`https://ticket-backend-wdv5.onrender.com/bookings/${userId}`)
       .then((res) => res.json())
       .then((data) => setBookings(data))
       .catch((err) => console.error("Error fetching bookings:", err));
@@ -25,7 +25,7 @@ export default function BookTicket() {
   // Fetch Events & Bookings
   // =======================
   useEffect(() => {
-    fetch("http://localhost:8082/events")
+    fetch("https://ticket-backend-wdv5.onrender.com/events")
       .then((res) => res.json())
       .then((data) => {
         setEvents(data);
@@ -46,7 +46,7 @@ export default function BookTicket() {
     const total = event.price * Number(quantity);
 
     try {
-      const response = await fetch("http://localhost:8082/book", {
+      const response = await fetch("https://ticket-backend-wdv5.onrender.com/book", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

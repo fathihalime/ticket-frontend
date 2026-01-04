@@ -17,7 +17,7 @@ export default function Admin() {
 
   const fetchEvents = async () => {
     try {
-      const res = await fetch("http://localhost:8082/events");
+      const res = await fetch("https://ticket-backend-wdv5.onrender.com/events");
       const data = await res.json();
       setEvents(data);
     } catch (err) {
@@ -27,7 +27,7 @@ export default function Admin() {
 
   const fetchBookings = async () => {
     try {
-      const res = await fetch("http://localhost:8082/admin/bookings");
+      const res = await fetch("https://ticket-backend-wdv5.onrender.com/admin/bookings");
       const data = await res.json();
       setBookings(data);
     } catch (err) {
@@ -37,7 +37,7 @@ export default function Admin() {
 
   const addEvent = async (event) => {
     try {
-      const res = await fetch("http://localhost:8082/events", {
+      const res = await fetch("https://ticket-backend-wdv5.onrender.com/events", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -54,7 +54,7 @@ export default function Admin() {
 
   const updateEvent = async (updated) => {
     try {
-      const res = await fetch(`http://localhost:8082/events/${updated.id}`, {
+      const res = await fetch(`https://ticket-backend-wdv5.onrender.com/events/${updated.id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -75,7 +75,7 @@ export default function Admin() {
   const deleteEvent = async (id) => {
     if (!window.confirm("Are you sure you want to delete this event?")) return;
     try {
-      const res = await fetch(`http://localhost:8082/events/${id}`, {
+      const res = await fetch(`https://ticket-backend-wdv5.onrender.com/events/${id}`, {
         method: "DELETE",
       });
       if (res.ok) fetchEvents();

@@ -8,7 +8,7 @@ export default function Customer() {
   const username = localStorage.getItem("username");
 
   useEffect(() => {
-    fetch("http://localhost:8082/events")
+    fetch("https://ticket-backend-wdv5.onrender.com/events")
       .then((res) => res.json())
       .then((data) => setEvents(data))
       .catch((err) => console.error(err));
