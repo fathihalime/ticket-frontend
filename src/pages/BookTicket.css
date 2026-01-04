@@ -1,0 +1,93 @@
+.book-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 50px;
+  background: linear-gradient(135deg, #4f46e5, #6d28d9);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.book-card {
+  width: 400px;
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+.book-card h2 {
+  margin-bottom: 20px;
+  color: #1f2937;
+}
+
+.book-card label {
+  display: block;
+  text-align: left;
+  margin-bottom: 8px;
+  color: #4b5563;
+  font-weight: 500;
+}
+
+.book-card select,
+.book-card input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+}
+
+.book-card button {
+  width: 100%;
+  padding: 12px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.book-card button:hover {
+  background: #4338ca;
+}
+
+.book-card hr {
+  margin: 25px 0;
+  border: none;
+  border-top: 1px solid #e5e7eb;
+}
+
+.book-card h3 {
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  background: #f3f4f6;
+  padding: 12px 15px;
+  border-radius: 12px;
+  text-align: left;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.history-item h4 {
+  margin: 0 0 5px 0;
+  color: #111827;
+}
+
+.history-item p {
+  margin: 2px 0;
+  color: #4b5563;
+  font-size: 14px;
+}

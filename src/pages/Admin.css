@@ -1,0 +1,159 @@
+.admin-container {
+  background: #f3f4f6;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  padding-bottom: 50px;
+}
+
+header {
+  padding-top: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #1f2937;
+}
+
+header p {
+  font-size: 16px;
+  color: #4b5563;
+}
+
+/* Layout */
+.admin-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  padding: 0 40px;
+}
+
+@media (max-width: 1000px) {
+  .admin-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left-panel h2,
+.right-panel h2 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 20px;
+  border-left: 4px solid #4f46e5;
+  padding-left: 10px;
+}
+
+/* Form Styling */
+.form-section {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  margin-bottom: 30px;
+}
+
+.form-section input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 15px;
+}
+
+.form-section button {
+  padding: 12px 20px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-section button:hover {
+  background: #4338ca;
+}
+
+/* Event List Section */
+.list-section {
+  display: grid;
+  gap: 20px;
+}
+
+/* Event Card */
+.list-section div {
+  padding: 20px;
+  background: white;
+  gap: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.2s;
+}
+
+.list-section div:hover {
+  transform: translateY(-3px);
+}
+
+.list-section h3 {
+  margin: 0;
+  color: #1f2937;
+}
+
+.list-section p {
+  margin: 2px 0;
+  color: #4b5563;
+}
+
+.list-section button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.list-section button:first-child {
+  background: #fbbf24;
+  color: white;
+  margin-right: 5px;
+}
+
+.list-section button:last-child {
+  background: #ef4444;
+  color: white;
+}
+
+/* Bookings Table */
+.bookings-table-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  overflow-x: auto;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bookings-table th,
+.bookings-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+.bookings-table th {
+  background: #f9fafb;
+  font-weight: 600;
+  color: #374151;
+}
+
+.bookings-table tr:hover {
+  background: #f9f9f9;
+}

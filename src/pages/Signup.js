@@ -1,0 +1,83 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
+
+export default function Signup() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8082/signup", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, email, password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        navigate("/");
+      } else {
+        setError(data.message);
+      }
+    } catch (err) {
+      setError("Failed to connect to server");
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <div className="login-box">
+        <h2>Sign Up</h2>
+        {error && <p className="error">{error}</p>}
+        <form onSubmit={handleSignup}>
+          <div className="input-group">
+            <label>Name</label>
+            <input
+              type="text"
+              placeholder="Enter your name"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit">Sign Up</button>
+        </form>
+        <p style={{ marginTop: "15px" }}>
+          Already have an account?{" "}
+          <span
+            style={{ color: "#4f46e5", cursor: "pointer" }}
+            onClick={() => navigate("/")}
+          >
+            Login
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+}

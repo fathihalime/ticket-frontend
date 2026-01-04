@@ -1,0 +1,66 @@
+.customer-container {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f3f4f6;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  font-size: 28px;
+  color: #1f2937;
+}
+
+header p {
+  font-size: 16px;
+  color: #4b5563;
+}
+
+/* Event Grid */
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+/* Event Card */
+.event-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+  text-align: center;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-card h3 {
+  color: #1f2937;
+  margin-bottom: 10px;
+}
+
+.event-card p {
+  color: #4b5563;
+  margin: 5px 0;
+}
+
+.event-card button {
+  padding: 10px 15px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+.event-card button:hover {
+  background: #059669;
+}
